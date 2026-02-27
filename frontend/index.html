@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeartLink - AI Emotional Support & Dating</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="auth-container">
+        <div class="neon-blur pink"></div>
+        <div class="neon-blur purple"></div>
+
+        <div class="glass-card auth-box">
+            <h1 class="logo glow-text"><i class="fa-solid fa-heart-pulse"></i> HeartLink</h1>
+            <p class="subtitle">Connect. Heal. Love.</p>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <div id="loginError" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Login <i class="fa-solid fa-arrow-right"></i></button>
+                <p class="switch-form">New here? <span onclick="toggleAuthForm('register')">Create an account</span></p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form" style="display: none;">
+                <h2>Join HeartLink</h2>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="regName" placeholder="Full Name" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-at"></i>
+                    <input type="text" id="regUsername" placeholder="Unique Username" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group half">
+                        <input type="number" id="regAge" placeholder="Age" required min="18">
+                    </div>
+                    <div class="input-group half">
+                        <select id="regGender" required>
+                            <option value="" disabled selected>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="regPassword" placeholder="Password" required minlength="6">
+                </div>
+                <div id="regError" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Create Profile <i class="fa-solid fa-heart"></i></button>
+                <p class="switch-form">Already have an account? <span onclick="toggleAuthForm('login')">Login</span></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        function toggleAuthForm(type) {
+            if (type === 'register') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'flex';
+                document.getElementById('registerForm').classList.add('active');
+            } else {
+                document.getElementById('registerForm').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'flex';
+                document.getElementById('loginForm').classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

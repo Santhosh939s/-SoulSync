@@ -1,0 +1,648 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "feel,i,lone,today": {
+            "intent": "support.lonely",
+            "domain": "default"
+          },
+          "im,sad,so": {
+            "intent": "support.sad",
+            "domain": "default"
+          },
+          "am,i,out,stress": {
+            "intent": "support.stress",
+            "domain": "default"
+          },
+          "a,song,suggest": {
+            "intent": "song.suggest",
+            "domain": "default"
+          },
+          "a,song,suggest,telugu": {
+            "intent": "song.telugu",
+            "domain": "default"
+          },
+          "a,breakup,for,music,recommend": {
+            "intent": "song.breakup",
+            "domain": "default"
+          },
+          "i,motiv,need": {
+            "intent": "support.motivation",
+            "domain": "default"
+          },
+          "chatbot,hello": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "support.lonely": "default",
+          "support.sad": "default",
+          "support.stress": "default",
+          "song.suggest": "default",
+          "song.telugu": "default",
+          "song.breakup": "default",
+          "support.motivation": "default",
+          "greetings.hello": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "I feel lonely today",
+            "intent": "support.lonely"
+          },
+          {
+            "domain": "default",
+            "utterance": "im so sad",
+            "intent": "support.sad"
+          },
+          {
+            "domain": "default",
+            "utterance": "I am stressed out",
+            "intent": "support.stress"
+          },
+          {
+            "domain": "default",
+            "utterance": "Suggest a song",
+            "intent": "song.suggest"
+          },
+          {
+            "domain": "default",
+            "utterance": "Suggest a telugu song",
+            "intent": "song.telugu"
+          },
+          {
+            "domain": "default",
+            "utterance": "Recommend music for a breakup",
+            "intent": "song.breakup"
+          },
+          {
+            "domain": "default",
+            "utterance": "I need motivation",
+            "intent": "support.motivation"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hello chatbot",
+            "intent": "greetings.hello"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "i": 1,
+              "feel": 1,
+              "lone": 1,
+              "today": 1,
+              "im": 1,
+              "so": 1,
+              "sad": 1,
+              "am": 1,
+              "stress": 1,
+              "out": 1,
+              "suggest": 1,
+              "a": 1,
+              "song": 1,
+              "telugu": 1,
+              "recommend": 1,
+              "music": 1,
+              "for": 1,
+              "breakup": 1,
+              "need": 1,
+              "motiv": 1,
+              "hello": 1,
+              "chatbot": 1
+            },
+            "intents": {
+              "support.lonely": 1,
+              "support.sad": 1,
+              "support.stress": 1,
+              "song.suggest": 1,
+              "song.telugu": 1,
+              "song.breakup": 1,
+              "support.motivation": 1,
+              "greetings.hello": 1
+            },
+            "intentFeatures": {
+              "support.lonely": {
+                "i": 1,
+                "feel": 1,
+                "lone": 1,
+                "today": 1
+              },
+              "support.sad": {
+                "im": 1,
+                "so": 1,
+                "sad": 1
+              },
+              "support.stress": {
+                "i": 1,
+                "am": 1,
+                "stress": 1,
+                "out": 1
+              },
+              "song.suggest": {
+                "suggest": 1,
+                "a": 1,
+                "song": 1
+              },
+              "song.telugu": {
+                "suggest": 1,
+                "a": 1,
+                "telugu": 1,
+                "song": 1
+              },
+              "song.breakup": {
+                "recommend": 1,
+                "music": 1,
+                "for": 1,
+                "a": 1,
+                "breakup": 1
+              },
+              "support.motivation": {
+                "i": 1,
+                "need": 1,
+                "motiv": 1
+              },
+              "greetings.hello": {
+                "hello": 1,
+                "chatbot": 1
+              }
+            },
+            "featuresToIntent": {
+              "i": [
+                "support.lonely",
+                "support.stress",
+                "support.motivation"
+              ],
+              "feel": [
+                "support.lonely"
+              ],
+              "lone": [
+                "support.lonely"
+              ],
+              "today": [
+                "support.lonely"
+              ],
+              "im": [
+                "support.sad"
+              ],
+              "so": [
+                "support.sad"
+              ],
+              "sad": [
+                "support.sad"
+              ],
+              "am": [
+                "support.stress"
+              ],
+              "stress": [
+                "support.stress"
+              ],
+              "out": [
+                "support.stress"
+              ],
+              "suggest": [
+                "song.suggest",
+                "song.telugu"
+              ],
+              "a": [
+                "song.suggest",
+                "song.telugu",
+                "song.breakup"
+              ],
+              "song": [
+                "song.suggest",
+                "song.telugu"
+              ],
+              "telugu": [
+                "song.telugu"
+              ],
+              "recommend": [
+                "song.breakup"
+              ],
+              "music": [
+                "song.breakup"
+              ],
+              "for": [
+                "song.breakup"
+              ],
+              "breakup": [
+                "song.breakup"
+              ],
+              "need": [
+                "support.motivation"
+              ],
+              "motiv": [
+                "support.motivation"
+              ],
+              "hello": [
+                "greetings.hello"
+              ],
+              "chatbot": [
+                "greetings.hello"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "i",
+                "feel",
+                "lone",
+                "today",
+                "im",
+                "so",
+                "sad",
+                "am",
+                "stress",
+                "out",
+                "suggest",
+                "a",
+                "song",
+                "telugu",
+                "recommend",
+                "music",
+                "for",
+                "breakup",
+                "need",
+                "motiv",
+                "hello",
+                "chatbot"
+              ],
+              "intents": [
+                "support.lonely",
+                "support.sad",
+                "support.stress",
+                "song.suggest",
+                "song.telugu",
+                "song.breakup",
+                "support.motivation",
+                "greetings.hello"
+              ],
+              "perceptrons": [
+                [
+                  1.8661471605300903,
+                  3.9679410457611084,
+                  3.9679410457611084,
+                  3.9679410457611084,
+                  -0.22454364597797394,
+                  -0.22454364597797394,
+                  -0.22454364597797394,
+                  -0.8532039523124695,
+                  -0.8532039523124695,
+                  -0.8532039523124695,
+                  -0.19654271006584167,
+                  -0.3194863200187683,
+                  -0.19654271006584167,
+                  -0.06509725004434586,
+                  -0.10498911887407303,
+                  -0.10498911887407303,
+                  -0.10498911887407303,
+                  -0.10498911887407303,
+                  -1.1965992450714111,
+                  -1.1965992450714111,
+                  -0.2615414261817932,
+                  -0.2615414261817932,
+                  0.5157438445779263
+                ],
+                [
+                  -0.7304783463478088,
+                  -0.1919274479150772,
+                  -0.1919274479150772,
+                  -0.1919274479150772,
+                  4.355781555175781,
+                  4.355781555175781,
+                  4.355781555175781,
+                  -0.2257855385541916,
+                  -0.2257855385541916,
+                  -0.2257855385541916,
+                  -0.366687536239624,
+                  -0.5725296139717102,
+                  -0.366687536239624,
+                  -0.12196777760982513,
+                  -0.19357390701770782,
+                  -0.19357390701770782,
+                  -0.19357390701770782,
+                  -0.19357390701770782,
+                  -0.2815939486026764,
+                  -0.2815939486026764,
+                  -0.6094187498092651,
+                  -0.6094187498092651,
+                  1.2183695696953656
+                ],
+                [
+                  1.877432942390442,
+                  -0.8522806763648987,
+                  -0.8522806763648987,
+                  -0.8522806763648987,
+                  -0.18724025785923004,
+                  -0.18724025785923004,
+                  -0.18724025785923004,
+                  3.963515520095825,
+                  3.963515520095825,
+                  3.963515520095825,
+                  -0.22633114457130432,
+                  -0.3589915335178375,
+                  -0.22633114457130432,
+                  -0.07517872005701065,
+                  -0.10911507904529572,
+                  -0.10911507904529572,
+                  -0.10911507904529572,
+                  -0.10911507904529572,
+                  -1.205287218093872,
+                  -1.205287218093872,
+                  -0.2689954936504364,
+                  -0.2689954936504364,
+                  0.5177345801093987
+                ],
+                [
+                  -0.5589357614517212,
+                  -0.159605473279953,
+                  -0.159605473279953,
+                  -0.159605473279953,
+                  -0.34461793303489685,
+                  -0.34461793303489685,
+                  -0.34461793303489685,
+                  -0.15935857594013214,
+                  -0.15935857594013214,
+                  -0.15935857594013214,
+                  4.646618843078613,
+                  3.506524085998535,
+                  4.646618843078613,
+                  -13.53334903717041,
+                  -1.134827971458435,
+                  -1.134827971458435,
+                  -1.134827971458435,
+                  -1.134827971458435,
+                  -0.23943458497524261,
+                  -0.23943458497524261,
+                  -0.5159921050071716,
+                  -0.5159921050071716,
+                  1.0405041503027679
+                ],
+                [
+                  -0.3211749792098999,
+                  -0.09011538326740265,
+                  -0.09011538326740265,
+                  -0.09011538326740265,
+                  -0.15559569001197815,
+                  -0.15559569001197815,
+                  -0.15559569001197815,
+                  -0.07731080055236816,
+                  -0.07731080055236816,
+                  -0.07731080055236816,
+                  0.4450276792049408,
+                  -0.11772662401199341,
+                  0.4450276792049408,
+                  13.660353660583496,
+                  -0.521333634853363,
+                  -0.521333634853363,
+                  -0.521333634853363,
+                  -0.521333634853363,
+                  -0.11363010108470917,
+                  -0.11363010108470917,
+                  -0.1993475705385208,
+                  -0.1993475705385208,
+                  -0.40797221646965637
+                ],
+                [
+                  -0.39694929122924805,
+                  -0.10877441614866257,
+                  -0.10877441614866257,
+                  -0.10877441614866257,
+                  -0.19227847456932068,
+                  -0.19227847456932068,
+                  -0.19227847456932068,
+                  -0.09322358667850494,
+                  -0.09322358667850494,
+                  -0.09322358667850494,
+                  -1.1770974397659302,
+                  1.81123685836792,
+                  -1.1770974397659302,
+                  -0.44391459226608276,
+                  3.002204656600952,
+                  3.002204656600952,
+                  3.002204656600952,
+                  3.002204656600952,
+                  -0.1505807340145111,
+                  -0.1505807340145111,
+                  -0.25808456540107727,
+                  -0.25808456540107727,
+                  0.46565865178777277
+                ],
+                [
+                  2.829191207885742,
+                  -1.232481598854065,
+                  -1.232481598854065,
+                  -1.232481598854065,
+                  -0.28947341442108154,
+                  -0.28947341442108154,
+                  -0.28947341442108154,
+                  -1.232338547706604,
+                  -1.232338547706604,
+                  -1.232338547706604,
+                  -0.24759575724601746,
+                  -0.3720490038394928,
+                  -0.24759575724601746,
+                  -0.06937433034181595,
+                  -0.12431778013706207,
+                  -0.12431778013706207,
+                  -0.12431778013706207,
+                  -0.12431778013706207,
+                  5.294839859008789,
+                  5.294839859008789,
+                  -0.43347275257110596,
+                  -0.43347275257110596,
+                  0.8668433859338179
+                ],
+                [
+                  -1.0266109704971313,
+                  -0.3009147644042969,
+                  -0.3009147644042969,
+                  -0.3009147644042969,
+                  -0.624802827835083,
+                  -0.624802827835083,
+                  -0.624802827835083,
+                  -0.2919316291809082,
+                  -0.2919316291809082,
+                  -0.2919316291809082,
+                  -0.5344947576522827,
+                  -0.8054215908050537,
+                  -0.5344947576522827,
+                  -0.15561170876026154,
+                  -0.26938560605049133,
+                  -0.26938560605049133,
+                  -0.26938560605049133,
+                  -0.26938560605049133,
+                  -0.42389872670173645,
+                  -0.42389872670173645,
+                  6.205655097961426,
+                  6.205655097961426,
+                  1.8744050367120197
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "I feel lonely today"
+      ],
+      [
+        "en",
+        "im so sad"
+      ],
+      [
+        "en",
+        "I am stressed out"
+      ],
+      [
+        "en",
+        "Suggest a song"
+      ],
+      [
+        "en",
+        "Suggest a telugu song"
+      ],
+      [
+        "en",
+        "Recommend music for a breakup"
+      ],
+      [
+        "en",
+        "I need motivation"
+      ],
+      [
+        "en",
+        "Hello chatbot"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "support.lonely": [
+          {
+            "answer": "I'm here for you! You are never truly alone. Sometimes it helps to go for a brief walk or listen to your favorite song."
+          }
+        ],
+        "support.sad": [
+          {
+            "answer": "It's completely okay to feel sad. Take a deep breath. Here is a soothing Telugu melody for you ❤️:\n<iframe width='100%' height='200' src='https://www.youtube.com/embed/zOwvX1PqIhs' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+          }
+        ],
+        "support.stress": [
+          {
+            "answer": "Take it one step at a time. Remember to breathe. You're stronger than you think. Try some relaxing music."
+          }
+        ],
+        "song.suggest": [
+          {
+            "answer": "Here's a beautiful Telugu song suggestion based on your mood:\n<iframe width='100%' height='200' src='https://www.youtube.com/embed/nLnw2gReEWc' frameborder='0' allowfullscreen></iframe>"
+          }
+        ],
+        "song.telugu": [
+          {
+            "answer": "Enjoy this amazing Telugu song:\n<iframe width='100%' height='200' src='https://www.youtube.com/embed/WbjnA-bH3j4' frameborder='0' allowfullscreen></iframe>"
+          }
+        ],
+        "song.breakup": [
+          {
+            "answer": "I recommend listening to this to let it all out:\n<iframe width='100%' height='200' src='https://www.youtube.com/embed/uB_iJttIe5U' frameborder='0' allowfullscreen></iframe>"
+          }
+        ],
+        "support.motivation": [
+          {
+            "answer": "You got this! Every small step is progress. Keep pushing forward! Here is an energetic Telugu song to pump you up:\n<iframe width='100%' height='200' src='https://www.youtube.com/embed/tKTwK2tq9Z4' frameborder='0' allowfullscreen></iframe>"
+          }
+        ],
+        "greetings.hello": [
+          {
+            "answer": "Hello! I am HeartLink's AI. I'm here to support you, chat, or suggest beautiful Telugu songs. How are you feeling today?"
+          }
+        ],
+        "None": [
+          {
+            "answer": "I'm here to listen. Tell me more about how you're feeling."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

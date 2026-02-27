@@ -1,0 +1,198 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --neon-pink: #ff2a85;
+    --neon-purple: #8a2be2;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(255, 42, 133, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(255, 42, 133, 0.05), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.05), transparent 25%);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Neon Glow Effects */
+.glow-text {
+    text-shadow: 0 0 10px rgba(255, 42, 133, 0.7), 0 0 20px rgba(255, 42, 133, 0.5);
+    color: var(--neon-pink);
+}
+
+.neon-blur {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+}
+.neon-blur.pink { background: rgba(255, 42, 133, 0.3); top: -50px; left: -50px; }
+.neon-blur.purple { background: rgba(138, 43, 226, 0.3); bottom: -50px; right: -50px; }
+
+/* Authentication UI */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.logo i { margin-right: 10px; }
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neon-pink);
+    opacity: 0.8;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-group select { padding-left: 15px; }
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px rgba(255, 42, 133, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+.input-group.half { width: 50%; }
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--neon-pink), #c71585);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 42, 133, 0.4);
+}
+
+.switch-form {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.switch-form span {
+    color: var(--neon-pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.switch-form span:hover { text-shadow: 0 0 5px var(--neon-pink); }
+
+.error-msg {
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    height: 15px;
+    text-align: left;
+    margin-top: -5px;
+}
+
+/* Background Animations */
+.background-animation {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
